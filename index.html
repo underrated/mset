@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mandelbrot Fractal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    <canvas id="fractal" width="800" height="800" style="float:left;"></canvas>
+    <div id = "ui" style="float:left;margin-left: 5px;position: relative;">
+        <strong>Control</strong>
+        <div id="control">
+            Max iters: <input type="text" id="max_iters" value="100"/> <br/>
+            Zoom speed: <input type="text" id="zoom_speed" value="0.0001"/> <br/>
+            <input type="button" id="redraw" value="Redraw"/>
+        </div>
+        <hr>
+        <div id="debug" >
+            <strong>Debug</strong>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html
