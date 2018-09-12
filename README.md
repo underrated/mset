@@ -17,7 +17,7 @@ This is a Mandelbrot set fractal viewer that I wrote to enhance my front-end dev
 * Only a gray-scale color scheme is currently supported 
 
 ## Bugs
-* if you set the zoom_speed to 0.1 and you zoom in and out really fast, the fractal gets flipped horizontally, not sure why
+* if you set the zoom speed to 0.1 or more and you zoom in and out really fast, the fractal gets flipped horizontally, not sure why
 
 ## TODO:
 * document the implementation
