@@ -209,27 +209,27 @@ cvs.onmousewheel = function(ev) {
     
     var pixel_stepX = (s.lower_right_re-s.upper_left_re)/s.xres;
     var pixel_stepY = (s.upper_left_im-s.lower_right_im)/s.yres;
-    mre = s.upper_left_re + zoomX*pixel_stepX;
-    mim = s.upper_left_im - zoomY*pixel_stepY;
+    var zoom_point_re = s.upper_left_re + zoomX*pixel_stepX;
+    var zoom_point_im = s.upper_left_im - zoomY*pixel_stepY;
     var zoom_factor = 1;
     if(delta<0)
         zoom_factor = 1 - s.zoom_speed*(-delta);
     else
         zoom_factor = 1 + s.zoom_speed*delta;
     
-    s.zoom(mre, mim, zoom_factor);
+    s.zoom(zoom_point_re, zoom_point_im, zoom_factor);
     
     mset(s);
    
     var dbg = document.getElementById("debug");
     dbg.innerHTML = "<strong>Zoom debug:</strong><br/>";
-    dbg.innerHTML += "<p> delta=" + delta +"</p>";
+    dbg.innerHTML += "<p> scroll delta=" + delta +"</p>";
     dbg.innerHTML += "<p> zoom_factor=" + zoom_factor +"</p>";
     dbg.innerHTML += "<p> zoom_speed=" + s.zoom_speed +"</p>";
     dbg.innerHTML += "<p> xwidth=" + s.xwidth +"</p>";
     dbg.innerHTML += "<p> upper_left=" + s.upper_left_re + " + " + s.upper_left_im + " j" +"</p>";
     dbg.innerHTML += "<p> lower_right=" + s.lower_right_re + " + " + s.lower_right_im + " j" +"</p>";
-    dbg.innerHTML += "<p> m=" + mre + " + " + mim + "j" +"</p>";
+    dbg.innerHTML += "<p> m=" + zoom_point_re + " + " + zoom_point_im + "j" +"</p>";
     dbg.innerHTML += "<p> zoomX=" + zoomX +"</p>";
     dbg.innerHTML += "<p> zoomY=" + zoomY +"</p>";
     dbg.innerHTML += "<p> pixel_stepX=" + pixel_stepX +"</p>";
@@ -245,7 +245,12 @@ function redraw(ev) {
 
 document.getElementById("redraw").onclick = redraw; 
 
-document.getElementById("reset").onclick = function(ev) { settings.reset(); mset(settings) }; 
+document.getElementById("reset").onclick = function(ev) { 
+    settings.reset(); 
+    document.getElementById("max_iters").value = settings.max_iters.toString();
+    document.getElementById("zoom_speed").value = settings.zoom_speed.toString();
+    mset(settings) 
+}; 
 
 document.getElementById("max_iters").onkeypress = function(ev) {
     if(ev.key == "Enter")
