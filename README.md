@@ -2,7 +2,7 @@
 
 This is a Mandelbrot set fractal viewer that I wrote to enhance my front-end development skills. It was a nice programming exercise and I think it's a good starting example for anyone trying to render 2D fractals on an HTML5 canvas. 
 
-![Image Example][https://github.com/underrated/mset/example.png]
+![Image Example](https://github.com/underrated/mset/blob/master/example.png)
 
 ## Features
 * Zoom in and out of the complex plane in real time using the mouse wheel or zoom gestures on touchpads/touchscreens
