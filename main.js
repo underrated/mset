@@ -262,4 +262,14 @@ document.getElementById("zoom_speed").onkeypress = function(ev) {
       redraw();
 }; 
 
+cvs.onmouseover = function(ev) {
+    document.getElementsByTagName("html")[0].style.overflow = "hidden";
+    document.getElementsByTagName("body")[0].style.overflow = "hidden";
+}
+
+cvs.onmouseout = function(ev) {
+    document.getElementsByTagName("html")[0].style.overflow = "scroll";
+    document.getElementsByTagName("body")[0].style.overflow = "scroll";
+}
+
 mset(settings);
