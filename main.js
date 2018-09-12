@@ -52,7 +52,8 @@ function mset(s) {
 }
 
 class MSettings {
-    constructor(s) {
+
+    copy(s) {
         this.xres = s.xres;
         this.yres = s.yres;
         this.upper_left_re = s.upper_left_re;
@@ -66,6 +67,25 @@ class MSettings {
         this.ywidth = this.xwidth*(this.yres/this.xres);
         this.lower_right_re = this.upper_left_re + this.xwidth;
         this.lower_right_im = this.upper_left_im - this.xwidth*(this.yres/this.xres);
+    }
+
+    constructor(s) {
+        this.copy(s);
+    }
+
+    reset() {
+        this.copy({
+            xres : 800,
+            yres : 600,
+            upper_left_re : -2.15,
+            upper_left_im : 1.31,
+            xwidth : 3.5,
+            threshold : 4,
+            max_iters : 100,
+            seed_re : 0,
+            seed_im : 0,
+            zoom_speed : 0.0001
+        });
     }
 
     refresh() {
@@ -224,10 +244,14 @@ function redraw(ev) {
 }
 
 document.getElementById("redraw").onclick = redraw; 
+
+document.getElementById("reset").onclick = function(ev) { settings.reset(); mset(settings) }; 
+
 document.getElementById("max_iters").onkeypress = function(ev) {
     if(ev.key == "Enter")
       redraw();
 }; 
+
 document.getElementById("zoom_speed").onkeypress = function(ev) {
     if(ev.key == "Enter")
       redraw();
