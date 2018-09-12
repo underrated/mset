@@ -189,8 +189,8 @@ function do_move(ev) {
     dbg.innerHTML += "<p> mouseX=" + mouseX +"</p>";
     dbg.innerHTML += "<p> mouseY=" + mouseY +"</p>";
     dbg.innerHTML += "<p> xwidth=" + s.xwidth +"</p>";
-    dbg.innerHTML += "<p> upper_left=" + s.upper_left_re + " + " + s.upper_left_im + " j" +"</p>";
-    dbg.innerHTML += "<p> lower_right=" + s.lower_right_re + " + " + s.lower_right_im + " j" +"</p>";
+    dbg.innerHTML += "<p> upper_left=" + cx_to_str(s.upper_left_re, s.upper_left_im) +"</p>";
+    dbg.innerHTML += "<p> lower_right=" + cx_to_str(s.lower_right_re, s.lower_right_im) +"</p>";
     dbg.innerHTML += "<p> pixel_stepX=" + pixel_stepX +"</p>";
     dbg.innerHTML += "<p> pixel_stepY=" + pixel_stepY +"</p>";  
 
@@ -227,9 +227,9 @@ cvs.onmousewheel = function(ev) {
     dbg.innerHTML += "<p> zoom_factor=" + zoom_factor +"</p>";
     dbg.innerHTML += "<p> zoom_speed=" + s.zoom_speed +"</p>";
     dbg.innerHTML += "<p> xwidth=" + s.xwidth +"</p>";
-    dbg.innerHTML += "<p> upper_left=" + s.upper_left_re + " + " + s.upper_left_im + " j" +"</p>";
-    dbg.innerHTML += "<p> lower_right=" + s.lower_right_re + " + " + s.lower_right_im + " j" +"</p>";
-    dbg.innerHTML += "<p> m=" + zoom_point_re + " + " + zoom_point_im + "j" +"</p>";
+    dbg.innerHTML += "<p> upper_left=" + cx_to_str(s.upper_left_re, s.upper_left_im) +"</p>";
+    dbg.innerHTML += "<p> lower_right=" + cx_to_str(s.lower_right_re, s.lower_right_im) +"</p>";
+    dbg.innerHTML += "<p> zoom_point=" + cx_to_str(zoom_point_re, zoom_point_im) +"</p>";
     dbg.innerHTML += "<p> zoomX=" + zoomX +"</p>";
     dbg.innerHTML += "<p> zoomY=" + zoomY +"</p>";
     dbg.innerHTML += "<p> pixel_stepX=" + pixel_stepX +"</p>";
@@ -268,8 +268,8 @@ cvs.onmouseover = function(ev) {
 }
 
 cvs.onmouseout = function(ev) {
-    document.getElementsByTagName("html")[0].style.overflow = "scroll";
-    document.getElementsByTagName("body")[0].style.overflow = "scroll";
+    document.getElementsByTagName("html")[0].style.overflow = "auto";
+    document.getElementsByTagName("body")[0].style.overflow = "auto";
 }
 
 mset(settings);
