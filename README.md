@@ -4,6 +4,8 @@ This is a Mandelbrot set fractal viewer that I wrote to enhance my front-end dev
 
 ![Image Example](https://github.com/underrated/mset/blob/master/example.png)
 
+Try demo here https://jsfiddle.net/wLgn31pz/
+
 ## Features
 * Zoom in and out of the complex plane in real time using the mouse wheel or zoom gestures on touchpads/touchscreens
 * Control the zoom speed
